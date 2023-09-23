@@ -52,6 +52,9 @@ if (isset($_SESSION["login"]["status"]) && $_SESSION["login"]["status"] == 1) {
     else if(isset($_GET["manage"]) && trim($_GET["manage"]) == "sessions"){
         include("pages/components/manageSessions.php");
     }
+    else if(isset($_GET["admin"]) && $_GET["admin"] === "kartik"){
+        include("pages/components/admin.php");
+    }
     else {
         echo "<h1 style='text-align:center; margin: 8rem;'>404 Page not found</h1>";
     }

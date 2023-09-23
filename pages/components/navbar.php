@@ -27,7 +27,7 @@ error_reporting(0);
 
             <!-- Trade dropdown -->
             <div id="trade-wrapper" class="relative dropdown__wrapper">
-                <p id="trade-link" class="dropdown-link">Trade <i class='bx bx-chevron-down'></i></p>
+                <p id="trade-link" class="dropdown-link">Community <i class='bx bx-chevron-down'></i></p>
                 <div id="trade-dropdown" class="none dropdown">
                     <a href="?counselling">Counselling</a>
                     <a href="?past">Past Experience</a>

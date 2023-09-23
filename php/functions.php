@@ -24,6 +24,27 @@ function fetchPosts()
     }
 }
 
+function getAllPosts(){
+    global $conn;
+    $query = "SELECT * FROM `posts` ORDER BY `id` DESC";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        if (mysqli_num_rows($result) > 0) {
+            $posts = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $posts[] = $row;
+            }
+
+            return $posts;
+        } else {
+            return array();
+        }
+    } else {
+        return false;
+    }
+}
+
 function fetchUserPosts($user)
 {
     global $conn;
@@ -171,4 +192,34 @@ function deleteOverSessions()
     } else {
         $_SESSION["err"]["err_msg"] = "Error deleting past sessions: ";
     }
+}
+
+function getAllUsers(){
+    global $conn;
+    $query = "SELECT * FROM `users`;";
+    $result = mysqli_query($conn, $query);
+
+    $users = array();
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[] = $row;
+        }
+    }
+
+    return $users;
+}
+
+function getAllAssessments(){
+    global $conn;
+    $query = "SELECT * FROM `assessments`;";
+    $result = mysqli_query($conn, $query);
+
+    $assessments = array();
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $assessments[] = $row;
+        }
+    }
+
+    return $assessments;
 }

@@ -562,6 +562,32 @@ else if (isset($_GET["assessment"])) {
         $_SESSION["err"]["err_msg"] = "Something went wrong!";
         header("location: ../?manage=sessions");
     }
+} else if ($_GET["block"]) {
+    $id = $_GET["block"];
+    global $conn;
+    //  Set connect = -1 in users table
+    $query = "UPDATE `users` SET `connect` = '-1' WHERE `users`.`id` = $id;";
+    $run = mysqli_query($conn, $query);
+    if ($run) {
+        $_SESSION["err"]["err_msg"] = "User " . $id . " Blocked!";
+        header("location: ../?admin=kartik");
+    } else {
+        $_SESSION["err"]["err_msg"] = "Something went wrong!";
+        header("location: ../?admin=kartik");
+    }
+} else if ($_GET["unblock"]) {
+    $id = $_GET["unblock"];
+    global $conn;
+    //  Set connect = -1 in users table
+    $query = "UPDATE `users` SET `connect` = '0' WHERE `users`.`id` = $id;";
+    $run = mysqli_query($conn, $query);
+    if ($run) {
+        $_SESSION["err"]["err_msg"] = "User " . $id . " unblocked!";
+        header("location: ../?admin=kartik");
+    } else {
+        $_SESSION["err"]["err_msg"] = "Something went wrong!";
+        header("location: ../?admin=kartik");
+    }
 } else {
     $_SESSION["err"]["err_msg"] = "No action found!";
     header("location: ../?profile");

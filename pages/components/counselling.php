@@ -6,11 +6,11 @@ $sessions = getSessionDetails();
 ?>
 
 <section class="wrapper">
-    <div id="myModal" class="modal">
+    <div id="myModal2" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Session Details</h3>
-                <span class="close">&times;</span>
+                <span class="close2">&times;</span>
             </div>
             <div id="sessionDetails"></div>
         </div>
@@ -66,7 +66,7 @@ $sessions = getSessionDetails();
                         <p><?php echo $session['description']; ?></p>
 
                         <div class="session__details">
-                            <a href="<?= $session["venue"] ?>" class="green__btn" target="_blank" style="width:7.5rem;">Venue</a>
+                            <a href="<?= $session["venue"] ?>" class="green__btn" target="_blank" style="max-width: 5.5rem;">Venue</a>
                             <button class="green__btn gray__btn know-more-button" data-details="<?php echo htmlspecialchars($session['know_more']); ?>">Know more</button>
 
                         </div>

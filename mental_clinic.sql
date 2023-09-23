@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 23, 2023 at 08:35 PM
+-- Generation Time: Sep 23, 2023 at 11:10 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -63,7 +63,9 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `name`, `email`, `comment`, `comment_id`, `created_at`) VALUES
 (8, 'test', 'kudlu2004@gmail.com', 'My first comment on post id 25', 25, '2023-09-23 18:17:41'),
-(9, 'test', 'kudlu2004@gmail.com', 'Seems like this was inserted from phpMyAdmin :)\r\n', 24, '2023-09-23 18:24:50');
+(9, 'test', 'kudlu2004@gmail.com', 'Seems like this was inserted from phpMyAdmin :)\r\n', 24, '2023-09-23 18:24:50'),
+(10, 'test', 'kudlu2004@gmail.com', 'You too short lmao\r\n', 23, '2023-09-23 20:59:00'),
+(11, 'test', 'kudlu2004@gmail.com', 'Hehe!', 23, '2023-09-23 20:59:35');
 
 -- --------------------------------------------------------
 
@@ -85,10 +87,34 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `name`, `post`, `email`, `created_at`) VALUES
 (21, 'test', '<h5>You can also add images to your post, just wow!</h5>\n<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHDLX7M64ynCaU-MM1MmnLLadjOnAaEKbszBFebnGAOKjR8sMKFtY6c4NTv8n_b4eZkKU&usqp=CAU\" alt=\"temp\">', 'kudlu2004@gmail.com', '2023-09-23 16:48:09'),
-(22, 'test', 'testing ', 'kudlu2004@gmail.com', '2023-09-23 16:48:22'),
-(23, 'test', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem facilis qui soluta expedita, natus eum exercitationem aut cumque reiciendis voluptas tenetur officia maxime corporis ipsam voluptate nostrum veritatis architecto unde iusto id quas voluptates beatae, numquam explicabo? Accusamus quisquam velit illo pariatur nulla. Excepturi tempora illum perspiciatis nobis exercitationem vero dolore nisi! Tempora aspernatur veritatis aliquid fugit fugiat consequatur corrupti laboriosam architecto iure dolor expedita nemo, ut officiis perspiciatis suscipit quaerat ipsam inventore? Quam repudiandae placeat iusto beatae non eum possimus quidem, ea cupiditate sunt vero vitae modi saepe autem! Inventore sed dolorem cumque error facilis vero commodi iure repellendus quae nulla rem qui, molestias non debitis illum quaerat! Aliquid voluptatum perferendis omnis nostrum magni doloremque repellat dignissimos rerum. Eos laborum suscipit adipisci a facilis? Amet, laborum itaque, dolorem excepturi quisquam repellendus velit, optio eius nostrum maxime libero! Sapiente vero ipsam corrupti eaque blanditiis. Sint quaerat quas expedita. Quis earum asperiores deleniti tempore excepturi rem amet dolorum nisi velit cumque magnam, suscipit natus ratione reprehenderit similique ex quia sed odio eaque. Vitae, maxime temporibus impedit ullam ad, voluptatibus beatae laborum fugiat quia aut aliquid animi aliquam provident obcaecati maiores quae commodi quibusdam! Dolore, magni aliquid eum sunt earum at a ipsa deleniti rerum quisquam fugiat quo ex doloremque cupiditate sapiente doloribus expedita officiis. Perferendis voluptate odio nobis optio quos aspernatur harum inventore, ex, corrupti facilis unde culpa eum reiciendis labore. Illum, quos et, inventore doloribus, expedita sint necessitatibus vero quo minus consectetur distinctio architecto voluptatibus odio dicta velit. Itaque nam, voluptas fugit dolore non optio ab. Inventore ipsam quod ratione delectus, illum expedita blanditiis dignissimos fuga mollitia. Aliquid unde, accusamus fuga ullam nisi optio iure earum quidem ducimus, alias placeat laborum totam. Ab maxime odit, eaque architecto molestias laborum iure reprehenderit voluptas fuga et. Corporis soluta, nesciunt eligendi eos excepturi quod nobis, aliquid laudantium architecto nam ad perferendis facere, hic illo culpa facilis dolores et asperiores voluptates cumque ea beatae odit? Laboriosam, quasi necessitatibus, ab qui reprehenderit laudantium ipsam, ipsa ipsum nisi perferendis ad rerum veniam mollitia accusamus voluptatibus exercitationem aspernatur alias saepe sunt? Aspernatur ea illum repellendus ad molestiae numquam, neque explicabo voluptates. Sunt impedit eos officiis nihil perspiciatis odit optio itaque tenetur ad iure sit alias incidunt illum eligendi nisi sequi labore, quam earum. Cumque, illum. Distinctio quis ad molestiae eligendi deleniti explicabo, minima inventore vero rerum dolores perspiciatis sit voluptates nisi accusamus magnam fugit assumenda? Asperi', 'kudlu2004@gmail.com', '2023-09-23 16:48:43'),
-(24, 'Added from SQL', 'Added from SQL', 'sql@gmail.com', '2023-09-23 17:02:32'),
-(25, 'test', '1212', 'kudlu2004@gmail.com', '2023-09-23 17:30:37');
+(24, 'Added from SQL', 'Added from SQL', 'sql@gmail.com', '2023-09-23 17:02:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` int(11) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `heading` varchar(256) NOT NULL,
+  `date` datetime DEFAULT NULL,
+  `time` time DEFAULT NULL,
+  `description` varchar(256) NOT NULL,
+  `know_more` varchar(400) NOT NULL,
+  `venue` varchar(400) NOT NULL DEFAULT '#',
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `email`, `name`, `heading`, `date`, `time`, `description`, `know_more`, `venue`, `updated_at`) VALUES
+(1, 'kudlu2004@gmail.com', 'test', 'testing 1', '2023-09-25 00:00:00', '00:00:00', 'Lorem12', 'some details here', 'https://codefury-6-0.vercel.app/', '2023-09-23 19:16:41'),
+(2, 'kudlu2004@gmail.com', 'test', 'Testing2', '2023-09-25 00:00:00', '00:00:00', ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsam consequatur ipsum aperiam quia minus? Dolores, accusantium recusandae. Itaque facilis qui quas pariatur nemo!', ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsam consequatur ipsum aperiam quia minus? Dolores, accusantium recusandae. Itaque facilis qui quas pariatur nemo!', 'https://www.google.com/maps/dir//BTM+4th+stage,+5th+Main+Rd,+Vijaya+Bank+Layout,+Devarachikkana+Halli,+Bengaluru,+Karnataka+560076/@12.9267269,77.6210065,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae6caf2cd6c373:0xfedfa908c2c73dde!2m2!1d77.611336!2d12.8872037?entry=ttu', '2023-09-23 19:55:32');
 
 -- --------------------------------------------------------
 
@@ -169,6 +195,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -194,13 +226,19 @@ ALTER TABLE `assessments`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `sessions`
+--
+ALTER TABLE `sessions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

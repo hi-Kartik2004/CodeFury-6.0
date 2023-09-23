@@ -38,8 +38,15 @@ $myPosts = getUserPosts($_SESSION["login"]["data"]["email"]);
 
     ?>
     <div class="container">
-        <h3>Manage Your Articles</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate error nulla at!</p>
+        <div class="session__heading">
+            <div>
+                <h3>Manage Your Articles</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate error nulla at!</p>
+            </div>
+
+            <a href="?manage=sessions" class="green__btn" style="max-width: 8.4rem; width: 100%">Edit Sessions</a>
+
+        </div>
 
         <div class="posts">
             <?php

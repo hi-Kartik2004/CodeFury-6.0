@@ -123,6 +123,39 @@ function getSessionDetails()
     return $sessions;
 }
 
+function getSessionDetailsByUser($user)
+{
+    global $conn;
+    $user = mysqli_real_escape_string($conn, $user); // Escape user input
+    $query = "SELECT * FROM `sessions` WHERE `email` = '$user';";
+    $result = mysqli_query($conn, $query);
+
+    $sessions = array();
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $sessions[] = $row;
+        }
+    }
+
+    return $sessions;
+}
+
+function getSessionById($id){
+    global $conn;
+    $query = "SELECT * FROM `sessions` WHERE `id` = '$id';";
+    $result = mysqli_query($conn, $query);
+
+    $sessions = array();
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $sessions[] = $row;
+        }
+    }
+
+    return $sessions;
+
+}
+
 
 function deleteOverSessions()
 {

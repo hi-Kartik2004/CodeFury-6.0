@@ -449,7 +449,7 @@ h5 {
   max-height: 2.8rem;
 }
 
-.gray__btn{
+.gray__btn {
   background-color: var(--light-gray-color);
 }
 
@@ -1275,11 +1275,19 @@ textarea {
   padding: 1rem 0rem;
 }
 
-.session__details{
+.session__details {
   margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.session__form > textarea{
+.manage__options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.session__form > textarea {
   max-width: 500px;
 }
 
@@ -1299,7 +1307,7 @@ textarea {
 /* Modal Content */
 .modal-content {
   background-color: var(--black-color);
-  margin: 10% auto;
+  margin: 5% auto;
   padding: 20px;
   border-radius: 5px;
   width: 80%;
@@ -1310,6 +1318,14 @@ textarea {
 
 /* Close Button */
 .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close2 {
   position: absolute;
   top: 10px;
   right: 10px;

@@ -427,8 +427,7 @@ else if (isset($_GET["assessment"])) {
         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
         header("location: ../?past");
     }
-}
-else if(isset($_GET["addSession"])){
+} else if (isset($_GET["addSession"])) {
     $name = $_SESSION["login"]["data"]["first_name"];
     $email = $_SESSION["login"]["data"]["email"];
     $heading = $_POST["heading"];
@@ -454,13 +453,12 @@ else if(isset($_GET["addSession"])){
         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
         header("location: ../?counselling");
     }
-}
-else if($_GET["editArticle"]){
+} else if ($_GET["editArticle"]) {
     $id = $_GET["editArticle"];
     global $conn;
     $post = $_POST["post"];
 
-    if(!$conn){
+    if (!$conn) {
         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
         header("location: ../?manage=articles");
     }
@@ -476,13 +474,11 @@ else if($_GET["editArticle"]){
         $_SESSION["err"]["err_msg"] = "Something went wrong!";
         header("location: ../?manage=articles");
     }
-
-}
-else if(isset($_GET["deleteArticle"])){
+} else if (isset($_GET["deleteArticle"])) {
     $id = $_GET["deleteArticle"];
     global $conn;
 
-    if(!$conn){
+    if (!$conn) {
         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
         header("location: ../?manage=articles");
     }
@@ -498,12 +494,11 @@ else if(isset($_GET["deleteArticle"])){
         $_SESSION["err"]["err_msg"] = "Something went wrong!";
         header("location: ../?manage=articles");
     }
-}
-else if(isset($_GET["deleteSession"])){
+} else if (isset($_GET["deleteSession"])) {
     $id = $_GET["deleteSession"];
     global $conn;
 
-    if(!$conn){
+    if (!$conn) {
         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
         header("location: ../?manage=sessions");
     }
@@ -519,27 +514,55 @@ else if(isset($_GET["deleteSession"])){
         $_SESSION["err"]["err_msg"] = "Something went wrong!";
         header("location: ../?manage=sessions");
     }
-}
-// else if(isset($_GET["editSession"])){
-//     $id = $_GET["editSession"];
-//     global $conn;
-//     $name = $_SESSION["login"]["data"]["first_name"];
-//     $email = $_SESSION["login"]["data"]["email"];
-//     $heading = $_POST["heading"];
-//     $date = $_POST["date"];
-//     $time = $_POST["time"];
-//     $venue = $_POST["url"];
-//     $knowMore = $_POST["know-more"];
-//     $desc = $_POST["desc"];
+} else if (isset($_GET["editSession"])) {
+    $id = $_GET["editSession"];
+    global $conn;
+    $name = $_SESSION["login"]["data"]["first_name"];
+    $email = $_SESSION["login"]["data"]["email"];
+    $heading = $_POST["heading"];
+    $date = $_POST["date"];
+    $time = $_POST["time"];
+    $venue = $_POST["url"];
+    $knowMore = $_POST["know-more"];
+    $desc = $_POST["desc"];
 
-//     if(!$conn){
-//         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
-//         header("location: ../?manage=sessions");
-//     }
+    if (!$conn) {
+        $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
+        header("location: ../?manage=sessions");
+    }
 
-//     $query = "UPDATE `sessions` SET `name` = '$name', `email` = '$email', `heading` = '$heading', `date` = '$date', `time` = '$time', `venue` = '$venue', `know_more
-// }
-else {
+    $query = "UPDATE `sessions` SET `name` = '$name', `email` = '$email', `heading` = '$heading', `date` = '$date', `time` = '$time', `venue` = '$venue', `know_more` = '$knowMore'";
+
+    $run = mysqli_query($conn, $query);
+
+    if ($run) {
+        $_SESSION["err"]["err_msg"] = "Session Edited!";
+        header("location: ../?manage=sessions");
+    } else {
+        $_SESSION["err"]["err_msg"] = "Something went wrong!";
+        header("location: ../?manage=sessions");
+    }
+} else if (isset($_GET["deleteSession"])) {
+    $id = $_GET["deleteSession"];
+    global $conn;
+
+    if (!$conn) {
+        $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
+        header("location: ../?manage=sessions");
+    }
+
+    $query = "DELETE FROM `sessions` WHERE `sessions`.`id` = $id;";
+
+    $run = mysqli_query($conn, $query);
+
+    if ($run) {
+        $_SESSION["err"]["err_msg"] = "Session Deleted!";
+        header("location: ../?manage=sessions");
+    } else {
+        $_SESSION["err"]["err_msg"] = "Something went wrong!";
+        header("location: ../?manage=sessions");
+    }
+} else {
     $_SESSION["err"]["err_msg"] = "No action found!";
     header("location: ../?profile");
 }

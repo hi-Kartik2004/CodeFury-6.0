@@ -277,7 +277,7 @@ function handleComments() {
 // ======== handling know more modals in sessions ======
 function sessionsKnowMore() {
   // Get the modal and its content
-  const modal = document.getElementById("myModal");
+  const modal = document.getElementById("myModal2");
   const modalContent = document.querySelector(".modal-content");
 
   // Get all "Know more" buttons
@@ -304,7 +304,7 @@ function sessionsKnowMore() {
   });
 
   // Add click event listener to close button
-  modalContent.querySelector(".close").addEventListener("click", closeModal);
+  modalContent.querySelector(".close2").addEventListener("click", closeModal);
 
   // Close the modal if the user clicks outside of it
   window.addEventListener("click", (event) => {

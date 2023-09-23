@@ -384,13 +384,12 @@ else if (isset($_GET["assessment"])) {
         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
         header("location: ../?past");
     }
-} else if (isset($_GET["past"])) {
+}else if (isset($_GET["past"])) {
     global $conn;
     $query = "SELECT * FROM `posts` ORDER BY `id` DESC";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-
         if (mysqli_num_rows($result) > 0) {
             $posts = array();
             while ($row = mysqli_fetch_assoc($result)) {

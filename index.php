@@ -43,8 +43,7 @@ if (isset($_SESSION["login"]["status"]) && $_SESSION["login"]["status"] == 1) {
     } else if (isset($_GET["counselling"])) {
         include("pages/components/counselling.php");
     } else if (isset($_GET["past"])) {
-
-        include("pages/components/past.php");
+        include("pages/components/past.php");        
     } else if (isset($_GET["chatgpt"])) {
         include("pages/components/chatgpt.php");
     } else {

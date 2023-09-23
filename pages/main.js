@@ -242,12 +242,45 @@ function showAddPost() {
   form.classList.toggle("none");
 
   if (form.classList.contains("none")) {
-    btn.innerText = "Show Form"; 
+    btn.innerText = "Add Post";
   } else {
     btn.innerText = "Hide Form";
   }
 }
 
+// ====== Handle comments =======
+
+function closeAllComments() {
+  const commentBtn = document.querySelectorAll(".comment-btn");
+  const commentForm = document.querySelectorAll(".comments");
+  console.log(commentBtn);
+
+  for (let i = 0; i < commentBtn.length; i++) {
+    closeAllComments();
+    commentBtn[i].addEventListener("click", () => {
+      commentForm[i].classList.add("none");
+    });
+  }
+}
+
+function handleComments() {
+  const commentBtn = document.querySelectorAll(".comment-btn");
+  const commentForm = document.querySelectorAll(".comments");
+
+  for (let i = 0; i < commentBtn.length; i++) {
+    commentBtn[i].addEventListener("click", () => {
+      commentForm[i].classList.toggle("none");
+    });
+  }
+}
+
+try {
+  document.addEventListener("DOMContentLoaded", () => {
+    handleComments();
+  });
+} catch (err) {
+  console.log("Comments cannot be used!");
+}
 
 try {
   HandleError();

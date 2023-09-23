@@ -60,7 +60,7 @@ if (isset($_GET["user"])) {
 
                             <div class="flex gap">
                                 <?php
-                                echo '<a href="?past&user=' . htmlspecialchars($post['email']) . '" class="">Users posts</a>';
+                                echo '<a href="?past&user=' . htmlspecialchars($post['email']) . '" class="" style="font-size: 0.75rem;">Users posts</a>';
                                 ?>
 
                                 <span class="comment-btn" style="cursor: pointer;">Comments</span>
@@ -75,42 +75,29 @@ if (isset($_GET["user"])) {
                         <a href="#" class="see-more-link">See more</a>
 
                         <section class="comments none">
-                            <p class="green__text">Comments:</p>
-                            <div class="comment">
-                                <div class="comment__user">
-                                    Name: <?php echo $post['name']; ?>
-                                </div>
-                                <div class="comment__content">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam enim ipsam inventore!
+                            <?php
+                            $comments = getCommentsForPost($post['id'], $conn);
 
-                                    <br></br>
+                            if (!empty($comments)) {
+                                echo '<p class="green__text">Comments:</p>';
 
-                                    <span>time: 23/09/2023</span>
-                                </div>
-                            </div>
+                                foreach ($comments as $comment) {
+                                    echo '<div class="comment">';
+                                    echo '<div class="comment__user">Name: ' . $comment['name'] . '</div>';
+                                    echo '<div class="comment__content">' . $comment['comment'] . '<br><br>';
+                                    echo '<span>time: ' . $comment['created_at'] . '</span>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                    echo '<hr>';
+                                }
+                            }
+                            ?>
 
-
-                            <div class="comment">
-                                <div class="comment__user">
-                                    Name: <?php echo $post['name']; ?>
-                                </div>
-                                <div class="comment__content">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam enim ipsam inventore!
-
-                                    <br></br>
-
-                                    <span>time: 23/09/2023</span>
-                                </div>
-                            </div>
-                            <hr>
-
-                            <form action="./php/actions.php">
-                                <textarea name="comment" id="post-comment" cols="30" rows="2" placeholder="You may also use HTML"></textarea>
+                            <form action="./php/actions.php?addComment=<?php echo $post['id']; ?>" method="post">
+                                <textarea name="post-comment" id="post-comment" cols="30" rows="2" placeholder="You may also use HTML"></textarea>
                                 <button class="green__btn" type="submit">Comment</button>
-                                </fo>
+                            </form>
                         </section>
-
-
 
                     </div>
             <?php

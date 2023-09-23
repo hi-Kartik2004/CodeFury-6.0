@@ -44,3 +44,24 @@
             $_SESSION["err"]["err_msg"] = "Error fetching posts: " . mysqli_error($conn);
         }
     }
+
+function getCommentsForPost($postId) {
+    global $conn;
+    $comments = array();
+
+    // Query to fetch comments for the specified post
+    $commentQuery = "SELECT * FROM `comments` WHERE `comment_id` = $postId";
+    $commentResult = mysqli_query($conn, $commentQuery);
+
+    if ($commentResult) {
+        // Check if there are comments for this post
+        if (mysqli_num_rows($commentResult) > 0) {
+            // Iterate through comments for this post
+            while ($comment = mysqli_fetch_assoc($commentResult)) {
+                $comments[] = $comment;
+            }
+        }
+    }
+
+    return $comments;
+}

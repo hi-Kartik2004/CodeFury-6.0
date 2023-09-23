@@ -115,15 +115,16 @@ p {
   font-size: 1rem;
 }
 
-textarea{
+textarea {
   border-radius: 4px;
 }
 
-pre{
+pre {
   background-color: transparent;
 }
 
-span {
+span
+ {
   font-size: 0.75rem;
   opacity: 0.8;
   background-color: transparent;
@@ -180,7 +181,7 @@ u {
   padding: 1rem;
 }
 
-.gap{
+.gap {
   gap: 1rem;
   align-items: center;
 }
@@ -207,7 +208,7 @@ form {
   background-color: transparent;
 }
 
-hr{
+hr {
   opacity: 0.2;
 }
 
@@ -1061,7 +1062,7 @@ th {
 
 /* ======= Assessment ========= */
 
-.wrapper{
+.wrapper {
   margin-top: 5rem;
   display: flex;
   /* justify-content: center; */
@@ -1071,12 +1072,12 @@ th {
   flex-direction: column;
   min-height: 90vh;
 }
-.assessment__form{
+.assessment__form {
   /* padding: 1rem; */
   margin: 3rem 0rem;
 }
 
-.question{
+.question {
   display: flex;
   flex-direction: column;
   background-color: var(--gray-color);
@@ -1084,29 +1085,29 @@ th {
   border-radius: 4px;
 }
 
-.options{
+.options {
   display: flex;
   flex-direction: row;
-  gap:1rem;
+  gap: 1rem;
   /* justify-content: center; */
   align-items: center;
   margin-top: 1rem;
   flex-wrap: wrap;
 }
 
-.options > input{
+.options > input {
   max-width: 10px;
   margin-top: 1rem;
   margin: 0rem;
   padding: 0rem;
 }
 
-.options > label{
+.options > label {
   background-color: transparent;
 }
 
 /* ======== Chat gpt ======= */
-.chatgpt__container{
+.chatgpt__container {
   margin: 2rem 0rem;
   display: flex;
   flex-direction: column;
@@ -1114,44 +1115,43 @@ th {
   /* background-color: red; */
 }
 
-.chatgpt__response{
+.chatgpt__response {
   background-color: var(--gray-color);
   min-height: 80vh;
 }
 
-.chatgpt__response{
+.chatgpt__response {
   padding: 1rem;
 }
 
-.response{
+.response {
   padding: 1.5rem 1rem;
   border-radius: 4px;
   background-color: var(--light-gray-color);
 }
 
-
-.chatgpt__query{
+.chatgpt__query {
   display: flex;
   /* justify-content: center; */
   align-items: center;
   flex-direction: row;
 }
 
-textarea{
+textarea {
   padding: 0.6rem;
   width: 100%;
 }
 
 /* ======== Summariser | General ======== */
 
-.single__element__form{
+.single__element__form {
   display: flex;
   flex-direction: row;
   margin-top: 2rem;
   /* background-color: red; */
 }
 
-.popular__summaries{
+.popular__summaries {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -1159,20 +1159,20 @@ textarea{
   margin-top: 2rem;
 }
 
-.popular__summary{
+.popular__summary {
   padding: 1rem;
   background-color: var(--gray-color);
   border-radius: 4px;
 }
 
-.summary__card{
+.summary__card {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
 }
 
-.read-link{
-  color: var(--green-color)
+.read-link {
+  color: var(--green-color);
 }
 
 /* CSS for the background image and cover effect */
@@ -1184,7 +1184,7 @@ textarea{
 }
 
 /* =========== Community ======= */
-.community__heading{
+.community__heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1192,7 +1192,7 @@ textarea{
   flex-wrap: wrap;
 }
 
-.posts{
+.posts {
   padding: 2rem 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -1201,7 +1201,7 @@ textarea{
   /* margin-bottom: 1rem; */
 }
 
-.post{
+.post {
   padding: 1rem;
   border-radius: 4px;
   background-color: var(--gray-color);
@@ -1213,19 +1213,18 @@ textarea{
   /* margin-bottom: 1rem; */
 }
 
-.post > h5{
+.post > h5 {
   color: var(--green-color);
 }
 
-.post__subs{
+.post__subs {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
-
-.post-content{
+.post-content {
   overflow-wrap: break-word;
   overflow: auto;
   display: flex;
@@ -1234,11 +1233,11 @@ textarea{
   flex-wrap: wrap;
 }
 
-.post-content img{
+.post-content img {
   align-self: flex-start;
 }
 
-.comments{
+.comments {
   margin-top: 1rem;
   border: 2px dashed var(--border-color);
   background-color: var(--gray-color);
@@ -1250,7 +1249,7 @@ textarea{
   gap: 1rem;
 }
 
-.comment{
+.comment {
   padding: 0.5rem;
   border-radius: 4px;
   background-color: var(--black-color);

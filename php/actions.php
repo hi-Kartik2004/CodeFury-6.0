@@ -384,7 +384,7 @@ else if (isset($_GET["assessment"])) {
         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
         header("location: ../?past");
     }
-}else if (isset($_GET["past"])) {
+} else if (isset($_GET["past"])) {
     global $conn;
     $query = "SELECT * FROM `posts` ORDER BY `id` DESC";
     $result = mysqli_query($conn, $query);
@@ -405,6 +405,28 @@ else if (isset($_GET["assessment"])) {
     }
 
     header("location: ../?past");
+} else if (isset($_GET["addComment"])) {
+    $email = $_SESSION["login"]["data"]["email"];
+    $name = $_SESSION["login"]["data"]["first_name"];
+    $comment = $_POST["post-comment"];
+    $commentId = $_GET["addComment"];
+
+    global $conn;
+
+    if ($conn) {
+        $query = "INSERT INTO `comments` (`name`, `email`, `comment`, `comment_id`) VALUES ('$name', '$email', '$comment',$commentId);";
+        $run = mysqli_query($conn, $query);
+        if ($run) {
+            $_SESSION["err"]["err_msg"] = "Comment added successfully!";
+            header("location: ../?past");
+        } else {
+            $_SESSION["err"]["err_msg"] = "Something went wrong!";
+            header("location: ../?past");
+        }
+    } else {
+        $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
+        header("location: ../?past");
+    }
 } else {
     $_SESSION["err"]["err_msg"] = "No action found!";
     header("location: ../?profile");

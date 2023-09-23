@@ -123,8 +123,7 @@ pre {
   background-color: transparent;
 }
 
-span
- {
+span {
   font-size: 0.75rem;
   opacity: 0.8;
   background-color: transparent;
@@ -448,6 +447,10 @@ h5 {
   border-radius: 0.2rem;
   cursor: pointer;
   max-height: 2.8rem;
+}
+
+.gray__btn{
+  background-color: var(--light-gray-color);
 }
 
 #remember-me {
@@ -1253,4 +1256,29 @@ textarea {
   padding: 0.5rem;
   border-radius: 4px;
   background-color: var(--black-color);
+}
+
+/* ========== Counselling ======== */
+.session {
+  padding: 1rem;
+  background-color: var(--gray-color);
+  border-radius: 4px;
+  margin-top: 2rem;
+}
+.session__heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.session__content {
+  /* background-color: var(--light-gray-color); */
+  padding: 1rem 0rem;
+}
+
+.session__details{
+  margin-top: 1rem;
+}
+
+.session__form > textarea{
+  max-width: 500px;
 }

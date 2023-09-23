@@ -242,7 +242,7 @@ function showAddPost() {
   form.classList.toggle("none");
 
   if (form.classList.contains("none")) {
-    btn.innerText = "Add Post";
+    btn.innerText = "Add";
   } else {
     btn.innerText = "Hide Form";
   }

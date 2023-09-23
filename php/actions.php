@@ -427,7 +427,35 @@ else if (isset($_GET["assessment"])) {
         $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
         header("location: ../?past");
     }
-} else {
+}
+else if(isset($_GET["addSession"])){
+    $name = $_SESSION["login"]["data"]["first_name"];
+    $email = $_SESSION["login"]["data"]["email"];
+    $heading = $_POST["heading"];
+    $date = $_POST["date"];
+    $time = $_POST["time"];
+    $venue = $_POST["url"];
+    $knowMore = $_POST["know-more"];
+    $desc = $_POST["desc"];
+
+    global $conn;
+
+    if ($conn) {
+        $query = "INSERT INTO `sessions` (`name`, `email`, `heading`, `date`, `time`, `venue`, `know_more`, `description`) VALUES ('$name', '$email', '$heading', '$date', '$time', '$venue', '$knowMore', '$desc');";
+        $run = mysqli_query($conn, $query);
+        if ($run) {
+            $_SESSION["err"]["err_msg"] = "Session added successfully!";
+            header("location: ../?counselling");
+        } else {
+            $_SESSION["err"]["err_msg"] = "Something went wrong!";
+            header("location: ../?counselling");
+        }
+    } else {
+        $_SESSION["err"]["err_msg"] = "Unable to connect with database!";
+        header("location: ../?counselling");
+    }
+}
+else {
     $_SESSION["err"]["err_msg"] = "No action found!";
     header("location: ../?profile");
 }

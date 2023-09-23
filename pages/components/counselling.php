@@ -1,8 +1,22 @@
 <?php
-    $sessions = getSessionDetails();
+$session = [];
+require_once("./php/functions.php");
+deleteOverSessions();
+$sessions = getSessionDetails();
 ?>
 
 <section class="wrapper">
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Session Details</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div id="sessionDetails"></div>
+        </div>
+    </div>
+
+
     <div class="error" id="error"><?php
                                     if (isset($_SESSION["err"]["err_msg"])) {
                                         echo "
@@ -35,27 +49,30 @@
         </form>
 
         <div class="sessions">
-            <div class="session">
-                <div class="session__heading">
-                    <div>
-                        <h4>Session Heading</h4>
-                        <a href="?past&user=">By: Person Name</a>
-                    </div>
+            <?php foreach ($sessions as $session) { ?>
+                <div class="session">
+                    <div class="session__heading">
+                        <div>
+                            <h4><?php echo $session['heading']; ?></h4>
+                            <a href="?past&user=<?php echo $session['name']; ?>">By: <?php echo $session['name']; ?></a>
+                        </div>
 
-                    <div>
-                        <p>Time: 10:00 AM</p>
-                        <p>Date: 25/09/2023</p>
+                        <div>
+                            <p>Time: <?php echo $session['time']; ?></p>
+                            <p>Date: <?php echo $session['date']; ?></p>
+                        </div>
+                    </div>
+                    <div class="session__content">
+                        <p><?php echo $session['description']; ?></p>
+
+                        <div class="session__details">
+                            <a href="<?= $session["venue"] ?>" class="green__btn" target="_blank" style="width:7.5rem;">Venue</a>
+                            <button class="green__btn gray__btn know-more-button" data-details="<?php echo htmlspecialchars($session['know_more']); ?>">Know more</button>
+
+                        </div>
                     </div>
                 </div>
-                <div class="session__content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam enim ipsam inventore!</p>
-
-                    <div class="session__details">
-                        <button class="green__btn" style="width:7.5rem;">Venue</button>
-                        <button class="green__btn gray__btn">Know more</button>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>

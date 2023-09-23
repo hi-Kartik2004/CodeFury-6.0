@@ -1282,3 +1282,37 @@ textarea {
 .session__form > textarea{
   max-width: 500px;
 }
+
+/* ========= Sessions know more modal ========= */
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: var(--black-color);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  border: 1px dashed var(--border-color);
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}

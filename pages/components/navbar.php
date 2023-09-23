@@ -41,6 +41,7 @@ error_reporting(0);
                 <div id="trade-wrapper" class="relative dropdown__wrapper">
                 <p id="trade-link" class="dropdown-link">Profile <i class="bx bx-chevron-down"></i></p>
                 <div id="trade-dropdown" class="none dropdown">
+                    <a href="?manage=articles">Manage Events</a>
                     <a href="?profile">View Profile</a>
                     <a href="?logout">Logout</a>
                 </div>

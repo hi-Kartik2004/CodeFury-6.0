@@ -46,7 +46,13 @@ if (isset($_SESSION["login"]["status"]) && $_SESSION["login"]["status"] == 1) {
         include("pages/components/past.php");
     } else if (isset($_GET["chatgpt"])) {
         include("pages/components/chatgpt.php");
-    } else {
+    }else if(isset($_GET["manage"]) && trim($_GET["manage"]) == "articles"){
+        include("pages/components/manageArticles.php");
+    }
+    else if(isset($_GET["manage"]) && trim($_GET["manage"]) == "sessions"){
+        include("pages/components/manageSessions.php");
+    }
+    else {
         echo "<h1 style='text-align:center; margin: 8rem;'>404 Page not found</h1>";
     }
 } else {

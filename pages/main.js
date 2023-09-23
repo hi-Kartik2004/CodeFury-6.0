@@ -274,6 +274,52 @@ function handleComments() {
   }
 }
 
+// ======== handling know more modals in sessions ======
+function sessionsKnowMore() {
+  // Get the modal and its content
+  const modal = document.getElementById("myModal");
+  const modalContent = document.querySelector(".modal-content");
+
+  // Get all "Know more" buttons
+  const knowMoreButtons = document.querySelectorAll(".know-more-button");
+
+  // Function to open the modal with session details
+  function openModal(sessionDetails) {
+      modal.style.display = "block";
+      // Set the innerHTML to display the session details
+      modalContent.querySelector("#sessionDetails").innerHTML = sessionDetails;
+  }
+
+  // Function to close the modal
+  function closeModal() {
+      modal.style.display = "none";
+  }
+
+  // Add click event listeners to "Know more" buttons
+  knowMoreButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+          const sessionDetails = button.getAttribute("data-details");
+          openModal(sessionDetails);
+      });
+  });
+
+  // Add click event listener to close button
+  modalContent.querySelector(".close").addEventListener("click", closeModal);
+
+  // Close the modal if the user clicks outside of it
+  window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+          closeModal();
+      }
+  });
+}
+
+try {
+  sessionsKnowMore();
+} catch (err) {
+  console.log("Sessions know more cannot be used!");
+}
+
 try {
   document.addEventListener("DOMContentLoaded", () => {
     handleComments();

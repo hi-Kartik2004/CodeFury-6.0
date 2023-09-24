@@ -24,7 +24,7 @@ function sendVerificationMail($receiver)
 
     // $baseurl = "http://localhost:3000/?verify=";
     $code = rand(1000, 9999);
-    $subject = "Wardiere | Verification link inside!";
+    $subject = "Digital Clinic | Verification link inside!";
     $_SESSION["verification_code"] = $code;
     try {
         // Server settings

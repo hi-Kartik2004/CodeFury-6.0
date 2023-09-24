@@ -391,7 +391,7 @@ hr {
 }
 
 .card__heading {
-  text-align: center;
+  /* text-align: start; */
 }
 
 form {
@@ -824,7 +824,7 @@ h5 {
 
 .card__heading {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   gap: 0rem;
 }
@@ -1198,6 +1198,7 @@ textarea {
   align-items: center;
   margin-bottom: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .posts {

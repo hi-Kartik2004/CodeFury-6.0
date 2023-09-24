@@ -7,6 +7,8 @@
         <span></span>
     </div> -->
 
+
+
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide" id="slider1">
@@ -29,7 +31,7 @@
                     <div class="slider1__heading">
                         <h3>Articles | Community | Counselling | Mental Status</h3>
                         <p>
-                        Enhance mental health and well-being in the digital age.
+                            Enhance mental health and well-being in the digital age.
                         </p>
                     </div>
 
@@ -65,7 +67,7 @@
         <br>
 
         <p>
-        Welcome to Mental Clinic, your source for mental health support and resources. Join our community and find the help and guidance you need. Explore, connect, and take steps toward a healthier mind. Start your journey to mental well-being with us today.
+            Welcome to Mental Clinic, your source for mental health support and resources. Join our community and find the help and guidance you need. Explore, connect, and take steps toward a healthier mind. Start your journey to mental well-being with us today.
             <br>
             <br>
             We are a decentralized exchange focused on offering a premier support to all the people of this digital age.
@@ -76,54 +78,87 @@
 
 <section class="hero__stocks__wrapper">
     <div class="hero__stocks container loading add-loader" id="hero-stocks">
-        <!-- Loading animation -->
-        <div class="loading-animation">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
 
-        <div class="stocks__card">
-            <div class="card__top">
-                <div>
-                    <!-- <i class='bx bxl-bitcoin'></i> -->
-                    <!-- <img src="pages/img/logo4.png" alt="card-logo"> -->
+        <?php
+        require_once "./php/functions.php";
+        $users = getAllUsers();
+
+        foreach ($users as $user) {
+
+        ?>
+
+            <div class="stocks__card">
+                <div class="card__top">
+                    <div>
+                        <?php
+                        $getArticleCount = count(getUserPosts($user["email"]));
+
+                        $getSessionCount = count(getSessionDetailsByUser($user["email"]));
+
+                        $getCommentCount = count(getCommentsPerUser($user["email"]));
+                        ?>
+
+                        <?php
+                        if ($getArticleCount > 20 || $getSessionCount > 20 || $getCommentCount > 20) {
+                            echo "<i class='bx bxs-heart' ></i>";
+                        } else if ($getArticleCount > 10 || $getSessionCount > 10 || $getCommentCount > 10) {
+                            echo "<i class='bx bx-laugh' ></i>";
+                        } else {
+                            echo "<i class='bx bx-smile'></i>";
+                        }
+                        ?>
+
+                    </div>
+
+                    <div class="card__heading">
+                        <h6><?= $user["first_name"] ?></h6>
+                        <span>Joined: <?= $user["created_at"] ?></span>
+                    </div>
+
                 </div>
 
-                <div class="card__heading">
-                    <!-- <h6>BTC</h6>
-                    <span>Bitcoin</span> -->
+                <div class="card__bottom">
+
+                    <h6>Articles: <?= $getArticleCount ?></h6>
+                    <h6>Comments: <?= $getCommentCount ?></h6>
+                    <h6>Sessions: <?= $getSessionCount ?></h6>
                 </div>
-
             </div>
 
-            <div class="card__bottom">
-                <!-- <h6>Rs 25,9991.62</h6>
-                <h4>(-3.08%)</h4> -->
-            </div>
-        </div>
+        <?php
+        }
+        ?>
 
 
     </div>
 
     <button class="hero__green__btn">
-        <a href="?buy">Show more</a>
+        <a href="?past">Show more</a>
     </button>
 </section>
 
 <!-- ============= News Letter ================= -->
 <section class="newsletter">
     <div class="newsletter__wrapper container">
+        <div class="error" id="error"><?php
+                                        if (isset($_SESSION["err"]["err_msg"])) {
+                                            echo "
+            <div class='err__content'>
+                <i class='bx bx-error-circle'></i>
+                " . $_SESSION['err']['err_msg'] . "
+            </div>
+        ";
+                                            unset($_SESSION["err"]);
+                                        }
+                                        ?></div>
         <div class="newsletter__heading">
             <h3>Email NewsLetter</h3>
             <p>Subscribe to our newsletter!</p>
         </div>
 
-        <form action="" method="post">
-            <input type="email" placeholder="example@mail.com" id="subscribe-input">
-            <button class="hero__green__btn" id="subscribe-btn">
+        <form action="./php/actions.php?newsLetter" method="post">
+            <input type="email" name="email" placeholder="example@mail.com" id="subscribe-input">
+            <button class="hero__green__btn" id="subscribe-btn" type="submit">
                 <h6>Submit</h6>
             </button>
         </form>

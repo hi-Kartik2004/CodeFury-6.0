@@ -60,11 +60,13 @@ error_reporting(0);
 
         <div class="mobile__nav none" id="mobile-nav">
             <a href="?home">Home</a>
-            <a href="?exchange">Exchange</a>
-            <a href="?buy">Buy Stocks</a>
-            <a href="?sell">Sell Stocks</a>
-            <a href="?stocks">Open order</a>
-            <a href="?history">Trade History</a>
+            <a href="?assessment">Assessment</a>
+            <a href="?articles=all">Articles</a>
+            <a href="?articles=yoga">Yoga Articles</a>
+            <a href="?counselling">Counselling</a>
+            <a href="?past">Community Talks</a>
+            <a href="?manage=articles">Manage</a>
+            <a href="?chatgpt">Ask Khushi</a>
             <?php if (isset($_SESSION['login']['status']) && $_SESSION["login"]["status"]) {
                 echo ' <a href="?profile">View Profile</a>
                 <a href="?logout">Logout</a>';

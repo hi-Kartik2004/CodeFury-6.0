@@ -3,7 +3,7 @@
         <div class="footer__left">
             <div>
                 <img src="pages/img/logo4.png" alt="logo">
-                <p>Trade with Freedom</p>
+                <p>Spread love & Insights Pseudonymously</p>
             </div>
 
             <div>

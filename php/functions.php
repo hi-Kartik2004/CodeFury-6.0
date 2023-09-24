@@ -128,6 +128,27 @@ function getCommentsForPost($postId)
     return $comments;
 }
 
+function getCommentsPerUser($user){
+    global $conn;
+    $comments = array();
+
+    // Query to fetch comments for the specified post
+    $commentQuery = "SELECT * FROM `comments` WHERE `email` = '$user'";
+    $commentResult = mysqli_query($conn, $commentQuery);
+
+    if ($commentResult) {
+        // Check if there are comments for this post
+        if (mysqli_num_rows($commentResult) > 0) {
+            // Iterate through comments for this post
+            while ($comment = mysqli_fetch_assoc($commentResult)) {
+                $comments[] = $comment;
+            }
+        }
+    }
+
+    return $comments;
+}
+
 function getSessionDetails()
 {
     global $conn;
@@ -196,7 +217,7 @@ function deleteOverSessions()
 
 function getAllUsers(){
     global $conn;
-    $query = "SELECT * FROM `users`;";
+    $query = "SELECT * FROM `users` ORDER BY `id`";
     $result = mysqli_query($conn, $query);
 
     $users = array();

@@ -588,6 +588,28 @@ else if (isset($_GET["assessment"])) {
         $_SESSION["err"]["err_msg"] = "Something went wrong!";
         header("location: ../?admin=kartik");
     }
+} else if (isset($_GET["newsLetter"])) {
+    $email = $_POST["email"];
+    global $conn;
+
+    // check if already email exists
+    $query = "SELECT * FROM `newsletters` WHERE `email` = '$email';";
+    $run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($run) > 0) {
+        $_SESSION["err"]["err_msg"] = "Email already subscribed!";
+        header("location: ../?home");
+        return;
+    }
+
+    $query = "INSERT INTO `newsletters` (`email`) VALUES ('$email');";
+    $run = mysqli_query($conn, $query);
+    if ($run) {
+        $_SESSION["err"]["err_msg"] = "Subscribed to newsletter!";
+        header("location: ../?home");
+    } else {
+        $_SESSION["err"]["err_msg"] = "Something went wrong!";
+        header("location: ../?home");
+    }
 } else {
     $_SESSION["err"]["err_msg"] = "No action found!";
     header("location: ../?profile");

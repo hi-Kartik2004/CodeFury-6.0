@@ -17,9 +17,9 @@
                     <u>Usefull Links</u>
                 </h6>
                 <div class="footer__links">
-                    <a href="?news">News</a>
-                    <a href="?login">Login</a>
-                    <a href="?register">Register</a>
+                    <a href="?articles=all">Articles</a>
+                    <a href="?counselling">Counselling</a>
+                    <a href="?past">Community</a>
                 </div>
             </div>
 
@@ -27,17 +27,17 @@
                 <h6><u>Pages</u></h6>
                 <div class="footer__links">
                     <a href="?terms">Terms</a>
-                    <a href="?faq">FAQ</a>
-                    <a href="?contact">Contact</a>
+                    <a href="https://mail.google.com/mail/u/0/popout?ver=1g3ytthb29lwb#attid%253Datt_18ac001495b8896e_0.1_f_lmvepwni0" target="_blank">FAQ</a>
+                    <a href="https://github.com/hi-Kartik2004/CodeFury-6.0/issues" target="_blank">Contact</a>
                 </div>
             </div>
 
             <div class="usefull__links">
                 <h6><u>Socials</u></h6>
                 <div class="footer__links">
-                    <a href=""><i class='bx bxl-facebook-square'></i> Facebook</a>
-                    <a href=""><i class='bx bxl-twitter'></i> Twitter</a>
-                    <a href=""><i class='bx bxl-linkedin'></i> Linkedin</a>
+                    <a href="https://www.linkedin.com/in/kartikeya-saini-65504b240/" target="_blank"><i class='bx bxl-linkedin'></i> Linkedin</a>
+                    <a href="https://github.com/hi-Kartik2004" target="_blank"><i class='bx bxl-github' ></i>Github</a>
+                    <a href="https://hi-kartik2004.github.io/Portfolio/"><i class='bx bxl-twitter'></i> Portfolio</a>
                 </div>
             </div>
 

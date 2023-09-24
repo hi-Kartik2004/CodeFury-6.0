@@ -33,11 +33,12 @@ if (isset($_GET["manage"]) && $_GET["manage"] == "sessions") {
         <?php
         if ($_GET["manage"] && isset($_GET["editSession"])) {
             $session = getSessionById($_GET["editSession"]);
+            $session = $session[0];
             echo '
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Edit Session: ' . $session["heading"] . '</h3>
+                <h4 style="margin-bottom: 1rem;">Edit Session: </h4>
                 <span class="close">&times;</span>
             </div>
             <form action="./php/actions.php?editSession=' . $session["id"] . '" method="post" class="session__form" id="post-form">
@@ -52,8 +53,8 @@ if (isset($_GET["manage"]) && $_GET["manage"] == "sessions") {
         </div>
     </div>';
         }
-
         ?>
+
 
         <div class="session__heading">
             <div>

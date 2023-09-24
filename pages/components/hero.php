@@ -36,7 +36,7 @@
                     </div>
 
                     <button class="hero__green__btn">
-                        <a href="?contact" style="font-weight:500; opacity: 1;">Get in touch</a>
+                        <a href="https://github.com/hi-Kartik2004/CodeFury-6.0/issues" target="_blank" style="font-weight:500; opacity: 1;">Get in touch</a>
                     </button>
                 </div>
 
@@ -82,9 +82,14 @@
         <?php
         require_once "./php/functions.php";
         $users = getAllUsers();
+        $counter = 0; // Initialize a counter variable
 
         foreach ($users as $user) {
-
+            if ($counter < 12) {
+                $counter++;
+            } else {
+                break;
+            }
         ?>
 
             <div class="stocks__card">

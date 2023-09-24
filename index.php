@@ -26,6 +26,9 @@ include("pages/components/navbar.php");
 // Handling user login routers
 if (isset($_SESSION["login"]["status"]) && $_SESSION["login"]["status"] == 1) {
     include("pages/components/page_loader.php");
+    if(isset($_GET["login"])|| isset($_GET["register"])){
+        header("location: ?past");
+    }
     if (isset($_GET["profile"])) {
         include("pages/components/profile.php");
     } else if (isset($_GET["home"])) {

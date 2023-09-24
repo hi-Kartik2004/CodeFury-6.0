@@ -1,5 +1,7 @@
 # Cyber Sensei | Kartikeya Saini | Project for CodeFury-6.0
 
+Hosted Project Link: https://digital-clinic.000webhostapp.com/?home=firstTime
+
 ## Prompts or tasks included 
 1. Admin Panel
 2. SEO

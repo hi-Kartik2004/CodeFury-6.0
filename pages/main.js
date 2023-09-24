@@ -285,22 +285,22 @@ function sessionsKnowMore() {
 
   // Function to open the modal with session details
   function openModal(sessionDetails) {
-      modal.style.display = "block";
-      // Set the innerHTML to display the session details
-      modalContent.querySelector("#sessionDetails").innerHTML = sessionDetails;
+    modal.style.display = "block";
+    // Set the innerHTML to display the session details
+    modalContent.querySelector("#sessionDetails").innerHTML = sessionDetails;
   }
 
   // Function to close the modal
   function closeModal() {
-      modal.style.display = "none";
+    modal.style.display = "none";
   }
 
   // Add click event listeners to "Know more" buttons
   knowMoreButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-          const sessionDetails = button.getAttribute("data-details");
-          openModal(sessionDetails);
-      });
+    button.addEventListener("click", () => {
+      const sessionDetails = button.getAttribute("data-details");
+      openModal(sessionDetails);
+    });
   });
 
   // Add click event listener to close button
@@ -308,11 +308,12 @@ function sessionsKnowMore() {
 
   // Close the modal if the user clicks outside of it
   window.addEventListener("click", (event) => {
-      if (event.target === modal) {
-          closeModal();
-      }
+    if (event.target === modal) {
+      closeModal();
+    }
   });
 }
+
 
 try {
   sessionsKnowMore();
@@ -346,3 +347,23 @@ try {
 } catch (error) {
   console.log("Remember me cannot be used!");
 }
+
+
+
+// const { BingChat } = require("bing-chat");
+
+// async function bing() {
+//   try {
+//     const api = new BingChat({
+//       cookie:
+//         "1ri2f1MaEjrJJqGmuy9c_mWuNGo3IS8snZnLrlH5I-bsjegLWKW0do5iyybtLg0ANv9UgFNzok9lkSc3qbPOdNP1FLbYmaep9ya9ckRsFcMfO3ijOgcbARNcNLXdUK6oWao6eRK-2fmGJCPIjQ-TAbD1RbJupKftfmPxHlRV0KzO-cqXB91KVCu6Lno3T69cJCvoTkoicdyUaWX_7hqg68w",
+//     });
+
+//     const res = await api.sendMessage("Hello World!");
+//     console.log(res.text);
+//   } catch (error) {
+//     console.error("An error occurred:", error);
+//   }
+// }
+
+// bing();

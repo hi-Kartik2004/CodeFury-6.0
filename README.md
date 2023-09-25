@@ -1,6 +1,11 @@
 # Cyber Sensei | Kartikeya Saini | Project for CodeFury-6.0
 
 Hosted Project Link: https://digital-clinic.000webhostapp.com/?home=firstTime
+Login credentials: 
+```
+Email: Kudlu2004@gmail.com
+Password: 12
+```
 
 ## Prompts or tasks included 
 1. Admin Panel

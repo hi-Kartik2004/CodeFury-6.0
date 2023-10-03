@@ -4,8 +4,8 @@ Hosted Project Link: https://digital-clinic.000webhostapp.com/?home=firstTime
 
 Login credentials: 
 ```
-Email: Kudlu2004@gmail.com
-Password: 12
+Email: temp@gmail.com
+Password: temp1234
 ```
 
 ## Prompts or tasks included 

@@ -68,5 +68,10 @@ Our platform isn't just a website; it's a community, a sanctuary, and a resource
 
 Together, we're tackling the digital age's challenges, one feature at a time. We believe in a brighter, mentally healthier future, and we invite you to join us on this journey. Thank you.
 
+## Screenshots
+
+![image](https://github.com/hi-Kartik2004/CodeFury-6.0/assets/111000515/4acb3dd3-b376-40c6-b8ff-c95eefe4b970)
+
+
 
 

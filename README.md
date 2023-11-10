@@ -70,6 +70,9 @@ Together, we're tackling the digital age's challenges, one feature at a time. We
 
 ## Screenshots
 
+![image](https://github.com/hi-Kartik2004/CodeFury-6.0/assets/111000515/1d053699-0281-4c93-a6fb-2b646d7bbd1b)
+
+
 ![image](https://github.com/hi-Kartik2004/CodeFury-6.0/assets/111000515/4acb3dd3-b376-40c6-b8ff-c95eefe4b970)
 
 
